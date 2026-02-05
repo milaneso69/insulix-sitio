@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class Inicio {
 
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
 }
