@@ -9,12 +9,22 @@ declare const window: any;
   styleUrl: './inicio.css',
   standalone: true
 })
-export class Inicio {
+export class Inicio implements AfterViewInit {
 
   ngAfterViewInit(): void {
-    // Re-inicializa FlyonUI cuando Angular termina de renderizar
     if (window?.flyonui) {
       window.flyonui.autoInit();
+    }
+  }
+
+  // Función genérica para ir a cualquier sección
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   }
 
@@ -24,5 +34,4 @@ export class Inicio {
       behavior: 'smooth'
     });
   }
-
 }

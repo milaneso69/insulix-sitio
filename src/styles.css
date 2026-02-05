@@ -3,3 +3,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* inicio.css o styles.css */
+html {
+  scroll-behavior: smooth;
+}
+
+/* TIP: Como tu header es 'sticky', cuando hagas scroll a una sección 
+   el título quedará tapado por el menú. Añade esto a tus secciones 
+   para que se detengan unos píxeles antes.
+*/
+section {
+  scroll-margin-top: 80px; /* Ajusta esto según la altura de tu header */
+}
