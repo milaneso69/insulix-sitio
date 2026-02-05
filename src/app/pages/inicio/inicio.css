@@ -1,0 +1,30 @@
+/* Parallax Section */
+.parallax-section {
+  position: relative;
+  background: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
+              url('/assets/ilustracion.avif') center/cover fixed;
+  background-attachment: fixed;
+}
+
+/* Fallback para navegadores que no soportan background-attachment fixed */
+@supports not (background-attachment: fixed) {
+  .parallax-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
+                      url('/assets/ilustracion.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Overlay pseudo-element para mejor control */
+.parallax-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
