@@ -20,6 +20,8 @@
             class="cursor-pointer hover:text-sky-600 transition-colors duration-200">Planes</a>
           <a (click)="scrollToSection('contacto')"
             class="cursor-pointer hover:text-sky-600 transition-colors duration-200">Contacto</a>
+          <a (click)="scrollToSection('nosotros')"
+            class="cursor-pointer hover:text-sky-600 transition-colors duration-200">Nosotros</a>
         </nav>
 
         <div class="relative group">
@@ -41,18 +43,6 @@
 <main class="min-h-screen bg-gray-50">
 
   <section id="inicio" class="min-h-[90vh] flex items-center justify-center bg-white dark:bg-gray-900 overflow-hidden relative">
-  
-  <style>
-    @keyframes heartbeat-insulix {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); } /* Escala al 108% en la mitad del ciclo */
-    }
-    .animate-beat {
-      /* Animación de 3 segundos, infinita, con suavizado */
-      animation: heartbeat-insulix 3s infinite ease-in-out;
-      transform-origin: center center;
-    }
-  </style>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 font-sans z-10">
     
@@ -296,7 +286,7 @@
   </div>
 </section>
 
-  <section id="planes" class="relative bg-white px-6 py-24 sm:py-32 lg:px-8 overflow-hidden">
+  <section id="planes" class="relative bg-waves px-6 py-24 sm:py-32 lg:px-8 overflow-hidden">
   <!-- Decoración de fondo -->
   <div aria-hidden="true" class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
     <div
@@ -323,7 +313,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 
       <!-- PLAN BÁSICO -->
-      <div class="group relative bg-white rounded-2xl p-8 shadow-lg ring-1 ring-gray-900/5 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+      <div class="group relative hover:z-50 bg-white rounded-2xl p-8 shadow-lg ring-1 ring-gray-900/5 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div class="mb-8">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-lg font-bold text-sky-600 uppercase tracking-wide">Plan Básico</h3>
@@ -398,7 +388,7 @@
       </div>
 
       <!-- PLAN PLUS - DESTACADO -->
-      <div class="group relative bg-gradient-to-br from-sky-900 via-sky-800 to-sky-900 rounded-2xl p-8 shadow-2xl ring-2 ring-sky-400 lg:scale-110 hover:scale-[1.12] lg:hover:scale-[1.13] transition-all duration-300">
+      <div class="group relative hover:z-50 bg-gradient-to-br from-sky-900 via-sky-800 to-sky-900 rounded-2xl p-8 shadow-2xl ring-2 ring-sky-400 lg:scale-110 hover:scale-[1.12] lg:hover:scale-[1.13] transition-all duration-300">
         <!-- Badge "Más Popular" -->
         <div class="absolute -top-4 left-1/2 -translate-x-1/2">
           <span class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500 px-4 py-1.5 text-xs font-bold text-white shadow-lg">
@@ -512,7 +502,7 @@
       </div>
 
       <!-- PLAN INSTITUCIONAL -->
-      <div class="group relative bg-white rounded-2xl p-8 shadow-lg ring-1 ring-gray-900/5 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+      <div class="group relative hover:z-50 bg-white rounded-2xl p-8 shadow-lg ring-1 ring-gray-900/5 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
         <div class="mb-8">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-lg font-bold text-sky-600 uppercase tracking-wide">Institucional</h3>
@@ -605,7 +595,7 @@
   </div>
 </section>
 
-  <section id="contacto" class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <section id="contacto" class="relative isolate bg-waves px-6 py-24 sm:py-32 lg:px-8">
     <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
       <div
         style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
@@ -672,5 +662,76 @@
       </div>
     </form>
   </section>
+
+  <section id="nosotros" class="py-24 bg-white dark:bg-gray-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      
+      <div class="lg:w-1/2 relative">
+        <div class="absolute -top-4 -left-4 w-72 h-72 bg-sky-100 dark:bg-sky-900/20 rounded-3xl -z-10"></div>
+        
+        <div class="bg-slate-50 dark:bg-gray-800 rounded-3xl shadow-2xl p-8 border border-slate-100 dark:border-gray-700">
+          <h4 class="text-sky-600 font-bold text-sm uppercase tracking-widest mb-4">Proyecto de Investigación</h4>
+          <p class="text-slate-900 dark:text-white font-black text-2xl mb-4 leading-tight">
+            Desarrollado en la Universidad Tecnológica del Centro de Veracruz
+          </p>
+          <div class="space-y-3">
+             <p class="text-sm text-slate-500 font-medium">Investigadores principales:</p>
+             <ul class="text-xs text-slate-600 dark:text-gray-400 grid grid-cols-2 gap-2">
+               <li></li>
+               <li>• Alejandro Arenas López</li>
+               <li>• Alex Bolaños Sánchez</li>
+               <li>• Sandra Y. Jiménez Asís</li>
+               <li>• Perla Luna</li>
+             </ul>
+             <p class="text-xs text-sky-600 font-bold mt-4">Asesor: Cristian Fernando Flores Ramírez</p>
+          </div>
+        </div>
+        
+        <div class="absolute -bottom-6 -right-6 bg-slate-900 dark:bg-sky-600 p-6 rounded-2xl shadow-xl text-white max-w-[150px]">
+          <p class="text-3xl font-black mb-1">+11k</p>
+          <p class="text-[10px] uppercase tracking-widest font-bold opacity-80">Ingresos hospitalarios registrados en 2025</p>
+        </div>
+      </div>
+
+      <div class="lg:w-1/2">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="h-px w-10 bg-sky-600"></span>
+          <span class="text-sky-600 dark:text-sky-400 font-bold uppercase tracking-widest text-xs">
+            Nuestra Misión y Origen
+          </span>
+        </div>
+
+        <h2 class="text-4xl font-black text-slate-900 dark:text-white leading-tight mb-8">
+          De una Gestión Reactiva a un <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-400">
+            Modelo de Salud Proactivo
+          </span>
+        </h2>
+
+        <p class="text-lg text-slate-600 dark:text-gray-300 leading-relaxed mb-6">
+          INSULIX nace ante una realidad crítica: solo en el primer trimestre de 2025 se registraron <strong>11,588 ingresos hospitalarios</strong> por Diabetes Tipo 2 en México, afectando principalmente a adultos mayores de 65 años.
+        </p>
+
+        <p class="text-slate-600 dark:text-gray-400 mb-8">
+          Nuestra misión es transformar esta estadística. Aplicamos principios de <strong>Gerontotecnología</strong> para asegurar que la tecnología sea accesible para el adulto mayor, combinándola con <strong>Machine Learning</strong> para predecir crisis como el coma diabético antes de que ocurran.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex items-start gap-3">
+            <div class="mt-1 w-5 h-5 bg-sky-100 dark:bg-sky-900/50 rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-2 h-2 bg-sky-600 rounded-full"></div>
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white text-sm">Salud Holística</p>
+              <p class="text-xs text-slate-500">Atención al bienestar físico y emocional del paciente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 </main>
