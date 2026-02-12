@@ -1,4 +1,6 @@
-/* Parallax Section */
+/* =========================================
+   PARALLAX SECTION
+   ========================================= */
 .parallax-section {
   position: relative;
   background: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
@@ -6,7 +8,7 @@
   background-attachment: fixed;
 }
 
-/* Fallback para navegadores que no soportan background-attachment fixed */
+/* Fallback para navegadores móviles que no soportan fixed background */
 @supports not (background-attachment: fixed) {
   .parallax-section {
     background-image: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.80)),
@@ -17,7 +19,6 @@
   }
 }
 
-/* Overlay pseudo-element para mejor control */
 .parallax-section::before {
   content: '';
   position: absolute;
@@ -29,6 +30,14 @@
   z-index: 1;
 }
 
+section#beneficios {
+  background-color: #075985; /* Slate-900 */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px; /* Tamaño de los cuadros */
+}
+
 /* =========================================
    CARDS INSULIX - RESPONSIVE ROBUSTO
    ========================================= */
@@ -37,9 +46,11 @@
 .cards {
   display: flex;
   width: min(1200px, 100%); 
-  /* Overflow hidden oculta los bordes redondos de las imagenes internas */
   overflow: hidden;
+  /* Radio general del contenedor (Respaldo) */
   border-radius: 1rem;
+  /* Fix para Safari: ayuda a respetar los bordes redondeados */
+  transform: translateZ(0); 
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
   background: #1e293b; /* Fondo slate-800 */
 }
@@ -48,8 +59,9 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  /* Transición suave solo para desktop */
   transition: flex 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Asegura que el borde no se duplique visualmente */
+  background: #1e293b; 
 }
 
 .card a {
@@ -63,7 +75,7 @@
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Clave para que la imagen no se deforme */
+  object-fit: cover;
   display: block;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
@@ -109,7 +121,7 @@
    ========================================= */
 @media (min-width: 769px) {
   .cards {
-    height: 100%; /* Toma los 500px del HTML */
+    height: 100%;
     flex-direction: row;
   }
 
@@ -118,8 +130,27 @@
     border-right: 1px solid rgba(255,255,255,0.1);
   }
 
+  /* --- LÓGICA DE BORDES REDONDEADOS (CÁPSULA HORIZONTAL) --- */
+  
+  /* Primera carta: Redondea solo izquierda */
+  .card:first-child {
+    border-radius: 1rem 0 0 1rem;
+  }
+  
+  /* Cartas del medio: Cuadradas */
+  .card:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  /* Última carta: Redondea solo derecha */
+  .card:last-child {
+    border-right: none; /* Quitamos borde derecho visual */
+    border-radius: 0 1rem 1rem 0;
+  }
+  /* --------------------------------------------------------- */
+
   .card:hover {
-    flex: 3; /* Efecto Acordeón */
+    flex: 3;
   }
 
   /* Imagen B&N por defecto */
@@ -131,7 +162,6 @@
     transform: scale(1.1);
   }
 
-  /* Overlay tenue por defecto */
   .card::after {
     opacity: 0;
   }
@@ -139,7 +169,6 @@
     opacity: 1;
   }
 
-  /* Título Centrado */
   .card-title {
     top: 50%;
     left: 50%;
@@ -147,15 +176,13 @@
     font-size: 1.1rem;
   }
 
-  /* Hover Título: Sube y cambia a azul */
   .card:hover .card-title {
-    background: rgba(255, 255, 255, 0.9);
-    color: #0284c7; /* Azul Insulix */
+    background: rgba(255, 255, 255, 0.8);
+    color: #0284c7;
     transform: translate(-50%, -50%) scale(1.1);
-    top: 40%; /* Sube un poco para dejar espacio al texto */
+    top: 40%;
   }
 
-  /* Descripción oculta por defecto */
   .card-desc {
     transform: translateY(100%);
   }
@@ -170,44 +197,59 @@
    ========================================= */
 @media (max-width: 768px) {
   .cards {
-    flex-direction: column; /* Apilar verticalmente */
-    height: auto; /* Crece según el contenido */
+    flex-direction: column;
+    height: auto;
   }
 
   .card {
     width: 100%;
-    height: 280px; /* Altura fija cómoda para ver en cel */
-    flex: none; /* Desactivar flex grow para evitar bugs */
+    height: 280px;
+    flex: none;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-right: none;
   }
 
-  /* Imagen siempre a color */
+  /* --- LÓGICA DE BORDES REDONDEADOS (COLUMNA VERTICAL) --- */
+  
+  /* Primera carta (Arriba): Redondea esquinas superiores */
+  .card:first-child {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  /* Cartas del medio: Cuadradas */
+  .card:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  /* Última carta (Abajo): Redondea esquinas inferiores */
+  .card:last-child {
+    border-bottom: none;
+    border-radius: 0 0 1rem 1rem;
+  }
+  /* ------------------------------------------------------- */
+
   .card img {
     filter: grayscale(0%);
   }
 
-  /* Overlay siempre visible */
   .card::after {
     opacity: 1;
   }
 
-  /* Título fijo arriba a la izquierda (Mejor lectura en móvil) */
   .card-title {
     top: 20px;
     left: 20px;
     transform: none;
     font-size: 1rem;
-    background: rgba(0, 169, 224, 0.85); /* Azul Insulix */
+    background: rgba(0, 169, 224, 0.85);
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   }
 
-  /* Descripción siempre visible abajo */
   .card-desc {
     transform: translateY(0);
     padding: 1.2rem;
   }
   
-  /* Ajuste de texto para móvil */
   .card-desc p {
     font-size: 0.95rem;
     line-height: 1.4;
