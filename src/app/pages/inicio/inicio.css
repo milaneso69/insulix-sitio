@@ -28,3 +28,188 @@
   background: rgba(255, 255, 255, 0.15);
   z-index: 1;
 }
+
+/* =========================================
+   CARDS INSULIX - RESPONSIVE ROBUSTO
+   ========================================= */
+
+/* --- ESTILOS GENERALES (BASE) --- */
+.cards {
+  display: flex;
+  width: min(1200px, 100%); 
+  /* Overflow hidden oculta los bordes redondos de las imagenes internas */
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+  background: #1e293b; /* Fondo slate-800 */
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Transición suave solo para desktop */
+  transition: flex 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Clave para que la imagen no se deforme */
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Sombra oscura (Overlay) */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 60%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.card-title {
+  position: absolute;
+  z-index: 20;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+.card-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  color: #fff;
+  z-index: 10;
+  transition: transform 0.4s ease;
+}
+
+/* =========================================
+   VERSIÓN ESCRITORIO (PC) 
+   (Pantallas mayores a 768px)
+   ========================================= */
+@media (min-width: 769px) {
+  .cards {
+    height: 100%; /* Toma los 500px del HTML */
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .card:hover {
+    flex: 3; /* Efecto Acordeón */
+  }
+
+  /* Imagen B&N por defecto */
+  .card img {
+    filter: grayscale(100%);
+  }
+  .card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+
+  /* Overlay tenue por defecto */
+  .card::after {
+    opacity: 0;
+  }
+  .card:hover::after {
+    opacity: 1;
+  }
+
+  /* Título Centrado */
+  .card-title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+  }
+
+  /* Hover Título: Sube y cambia a azul */
+  .card:hover .card-title {
+    background: rgba(255, 255, 255, 0.9);
+    color: #0284c7; /* Azul Insulix */
+    transform: translate(-50%, -50%) scale(1.1);
+    top: 40%; /* Sube un poco para dejar espacio al texto */
+  }
+
+  /* Descripción oculta por defecto */
+  .card-desc {
+    transform: translateY(100%);
+  }
+  .card:hover .card-desc {
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   VERSIÓN MÓVIL (CELULAR) 
+   (Pantallas menores a 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column; /* Apilar verticalmente */
+    height: auto; /* Crece según el contenido */
+  }
+
+  .card {
+    width: 100%;
+    height: 280px; /* Altura fija cómoda para ver en cel */
+    flex: none; /* Desactivar flex grow para evitar bugs */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Imagen siempre a color */
+  .card img {
+    filter: grayscale(0%);
+  }
+
+  /* Overlay siempre visible */
+  .card::after {
+    opacity: 1;
+  }
+
+  /* Título fijo arriba a la izquierda (Mejor lectura en móvil) */
+  .card-title {
+    top: 20px;
+    left: 20px;
+    transform: none;
+    font-size: 1rem;
+    background: rgba(0, 169, 224, 0.85); /* Azul Insulix */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /* Descripción siempre visible abajo */
+  .card-desc {
+    transform: translateY(0);
+    padding: 1.2rem;
+  }
+  
+  /* Ajuste de texto para móvil */
+  .card-desc p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
