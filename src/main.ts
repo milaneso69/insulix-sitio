@@ -7,7 +7,7 @@ bootstrapApplication(App, appConfig)
   .then(() => {
     // Esperar mínimo 2 segundos para mostrar la animación completa
     return Promise.all([
-      new Promise(resolve => setTimeout(resolve, 3000))
+      new Promise(resolve => setTimeout(resolve, 1500))
     ]);
   })
   .then(() => {
