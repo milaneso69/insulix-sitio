@@ -1,12 +1,30 @@
- @keyframes heartbeat-insulix {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); } /* Escala al 108% en la mitad del ciclo */
-    }
-    .animate-beat {
-      /* Animación de 3 segundos, infinita, con suavizado */
-      animation: heartbeat-insulix 3s infinite ease-in-out;
-      transform-origin: center center;
-    }
+@keyframes heartbeat-insulix {
+  0% { 
+    transform: scale(1);
+  }
+  14% { 
+    transform: scale(1.15);
+  }
+  28% { 
+    transform: scale(1);
+  }
+  42% { 
+    transform: scale(1.18);
+  }
+  70% { 
+    transform: scale(1);
+  }
+  100% { 
+    transform: scale(1);
+  }
+}
+
+.animate-beat {
+  animation: heartbeat-insulix 1.6s infinite ease-in-out;
+  transform-origin: center center;
+  /* Opcional: añade un ligero filtro para efecto visual */
+  will-change: transform;
+}
 
     section#beneficios {
   background-color: #075985  ; /* Slate-900 */

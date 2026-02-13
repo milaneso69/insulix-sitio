@@ -8,6 +8,43 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <!-- Global Loader -->
+<div id="app-loader" class="fixed inset-0 bg-gradient-to-br from-sky-50 via-white to-blue-50 flex items-center justify-center z-[9999]">
+  <div class="flex flex-col items-center gap-8">
+    
+    <!-- Logo simple con animación sutil -->
+    <div class="relative">
+      <!-- Círculo de fondo suave -->
+      <div class="absolute inset-0 flex items-center justify-center -z-10">
+        <div class="w-40 h-40 bg-gradient-to-br from-sky-200/30 to-sky-300/20 rounded-full blur-2xl animate-pulse"></div>
+      </div>
+      
+      <!-- Logo texto limpio -->
+      <h2 class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-sky-700 to-sky-800 uppercase tracking-tight">
+        INSULIX
+      </h2>
+    </div>
+    
+    <!-- Barra de progreso animada -->
+    <div class="w-64 h-1.5 bg-sky-100 rounded-full overflow-hidden shadow-sm">
+      <div class="h-full bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 rounded-full animate-progress"></div>
+    </div>
+    
+    <!-- Dots con animación secuencial -->
+    <div class="flex gap-3">
+      <div class="w-2.5 h-2.5 bg-sky-600 rounded-full animate-bounce-slow" style="animation-delay: 0s;"></div>
+      <div class="w-2.5 h-2.5 bg-sky-600 rounded-full animate-bounce-slow" style="animation-delay: 0.15s;"></div>
+      <div class="w-2.5 h-2.5 bg-sky-600 rounded-full animate-bounce-slow" style="animation-delay: 0.3s;"></div>
+      <div class="w-2.5 h-2.5 bg-sky-600 rounded-full animate-bounce-slow" style="animation-delay: 0.45s;"></div>
+    </div>
+    
+    <!-- Loading Text -->
+    <p class="text-slate-500 font-medium text-sm animate-pulse">
+      Preparando tu experiencia...
+    </p>
+  </div>
+</div>
+
   <app-root></app-root>
 </body>
 <script src="/path/to/flyonui.js"></script>
